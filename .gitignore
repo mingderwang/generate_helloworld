@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ginger
 web_service.go
 person_resource.go
@@ -8,3 +9,29 @@ gen/slack_resource.go
 gen/Makefile
 gen/Dockerfile
 gen/dockerize.sh
+=======
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.o
+*.a
+*.so
+
+# Folders
+_obj
+_test
+
+# Architecture specific extensions/prefixes
+*.[568vq]
+[568vq].out
+
+*.cgo1.go
+*.cgo2.c
+_cgo_defun.c
+_cgo_gotypes.go
+_cgo_export.*
+
+_testmain.go
+
+*.exe
+*.test
+*.prof
+>>>>>>> 7a1158cabdaf2bae28d14c94b83892debc52fb72
