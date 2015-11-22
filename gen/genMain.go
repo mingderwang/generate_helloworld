@@ -5,6 +5,7 @@
 package gen
 
 import (
+	"log"
 	"os"
 	"text/template"
 )
