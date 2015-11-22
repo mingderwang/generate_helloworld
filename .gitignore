@@ -1,0 +1,10 @@
+ginger
+web_service.go
+person_resource.go
+gen/main.go
+gen/web_service.go
+gen/config.yaml
+gen/slack_resource.go
+gen/Makefile
+gen/Dockerfile
+gen/dockerize.sh
