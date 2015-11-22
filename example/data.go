@@ -9,4 +9,4 @@ package main
 import ()
 
 // @generate_helloworld
-const hello = "世界"
+const hello = "World"

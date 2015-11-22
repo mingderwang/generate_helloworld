@@ -3,12 +3,10 @@ A Hello World for go generate
 
 #usage
 ```
+go get github.com/mingderwang/generate_helloworld
 cd example
 go generate
 ```
 ```
-go build
-```
-```
-./example
+go run main.go
 ```

@@ -18,12 +18,12 @@ package parse
 import ()
 
 // @generate_helloworld
-const hello = "Hello, 世界"
+const hello = "World"
 `
 )
 
 func ExampleParse() {
 	Scan(src, "")
 	//Output:
-	//"Hello, 世界"
+	//"World"
 }

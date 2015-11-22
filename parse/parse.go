@@ -6,7 +6,7 @@
 package parse
 
 import (
-	//"fmt"
+	"fmt"
 	//	"github.com/davecgh/go-spew/spew"
 	"go/ast"
 	"go/parser"
@@ -40,7 +40,7 @@ func Scan(src string, path string) string {
 								if typeSpec.Values != nil {
 									for _, hello := range typeSpec.Values {
 										if basicLit, ok := hello.(*ast.BasicLit); ok {
-											//fmt.Println(basicLit.Value)
+											fmt.Println(basicLit.Value)
 											return basicLit.Value
 										}
 									}
