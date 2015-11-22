@@ -21,7 +21,7 @@ package main
 
 import "fmt"
 func main() {
-	fmt.Print({{.Name}})
+	fmt.Println("hello "+ {{.Name}})
 }
 `))
 )
