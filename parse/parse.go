@@ -6,7 +6,7 @@
 package parse
 
 import (
-	//"fmt"
+	"fmt"
 	//	"github.com/davecgh/go-spew/spew"
 	"go/ast"
 	"go/parser"
@@ -14,9 +14,7 @@ import (
 	"strings"
 )
 
-func Scan(src string, path string) []string {
-	var result []string
-
+func Scan(src string, path string) string {
 	fset := token.NewFileSet()
 	var f *ast.File
 	var err error
@@ -30,21 +28,22 @@ func Scan(src string, path string) []string {
 	}
 	//ast.Print(fset, f)
 	for _, decl := range f.Decls {
-		//fmt.Println(index)
-		//spew.Dump(decl)
 		if genDecl, ok := decl.(*ast.GenDecl); ok {
 			if genDecl.Doc == nil {
-				//fmt.Println("genDecl.Doc == nil")
 			} else {
 				//spew.Dump(genDecl.Doc)
 				for _, comment := range genDecl.Doc.List {
-					if strings.Contains(comment.Text, "@ginger") {
+					if strings.Contains(comment.Text, "@generate_helloworld") {
 						for _, spec := range genDecl.Specs {
-							//spew.Dump(genDecl.Specs)
-							if typeSpec, ok := spec.(*ast.TypeSpec); ok {
-								if typeSpec.Name != nil {
-									//fmt.Println(typeSpec.Name.Name)
-									result = append(result, typeSpec.Name.Name)
+							if typeSpec, ok := spec.(*ast.ValueSpec); ok {
+								//spew.Dump(genDecl.Specs)
+								if typeSpec.Values != nil {
+									for _, hello := range typeSpec.Values {
+										if basicLit, ok := hello.(*ast.BasicLit); ok {
+											fmt.Println(basicLit.Value)
+											return basicLit.Value
+										}
+									}
 								}
 							}
 						}
@@ -53,5 +52,5 @@ func Scan(src string, path string) []string {
 			}
 		}
 	}
-	return result
+	return ""
 }

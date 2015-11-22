@@ -6,9 +6,9 @@
 package main
 
 import (
-	//	"fmt"
-	"github.com/mingderwang/ginger/gen"
-	"github.com/mingderwang/ginger/parse"
+	"fmt"
+	"github.com/mingderwang/generate_helloworld/gen"
+	"github.com/mingderwnag/generate_helloworld/parse"
 	"os"
 )
 
@@ -28,20 +28,12 @@ type Person struct {
 
 func main() {
 	if len(os.Args) > 1 {
-		var types []string
 		fileName := os.Args[1]
 		if fileName == "" {
 			return
 		}
-		types = parse.Scan("", fileName)
-		for _, typeName := range types {
-			gen.GenWebService(typeName)
-			gen.GenResourceFile(typeName)
-			gen.GenMain(typeName)
-			//			gen.GenConfig(typeName)
-			gen.GenMakefile(typeName)
-			gen.GenDockerfile(typeName)
-			gen.GenShellCode(typeName)
-		}
+		hello := parse.Scan("", fileName)
+		fmt.Println(hello)
+		gen.GenMain(hello)
 	}
 }

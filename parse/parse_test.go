@@ -17,27 +17,13 @@ var (
 package parse
 import ()
 
-// @ginger
-type SlackUser struct {
-	Name string
-}
-// don't scan
-type SlackChannel struct {
-	Name string
-}
-// @ginger
-type SlackMessage struct {
-	Name string
-}
-
-func main() {
-}
+// @generate_helloworld
+const hello = "Hello, 世界"
 `
 )
 
 func ExampleParse() {
 	Scan(src, "")
 	//Output:
-	//SlackUser
-	//SlackMessage
+	//"Hello, 世界"
 }
